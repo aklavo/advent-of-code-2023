@@ -29,4 +29,4 @@ for line in lines:
   answer += calibration_value
 
 # Print final answer  
-print(answer)
+print(f"The answer is: {answer}")
