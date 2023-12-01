@@ -28,5 +28,5 @@ for line in lines:
   # Add calibration value to running total
   answer += calibration_value
 
-# Print final answer  
+# Print answer to part 1
 print(f"The answer is: {answer}")
