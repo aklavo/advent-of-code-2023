@@ -38,7 +38,7 @@ for line in lines:
     if first_index != -1 and first_index < first_word_index:
        first_word_index = first_index
        first_word_value = num_dict[key]
-    # addisn last word
+    # addsign last word
     if last_index >= last_word_index:
        last_word_index = last_index
        last_word_value = num_dict[key]
@@ -69,3 +69,5 @@ for line in lines:
 
 # Print answer
 print(f"The answer is: {answer}")
+
+
