@@ -14,3 +14,12 @@ touch "prompt-day-$dayNum.txt"
 touch "input-day-$dayNum.txt" 
 touch "example.txt"
 touch "answer-day-$dayNum.py"
+
+# Stage files
+git add.
+
+# Commit files
+git commit -m "Initialize Day $dayNum"
+
+# Sync with remote
+git push origin master
