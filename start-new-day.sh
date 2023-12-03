@@ -16,10 +16,10 @@ touch "example.txt"
 touch "answer-day-$dayNum.py"
 
 # Stage files
-git add.
+git add .
 
 # Commit files
 git commit -m "Initialize Day $dayNum"
 
 # Sync with remote
-git push origin master
+git push 
