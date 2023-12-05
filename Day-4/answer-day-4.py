@@ -18,8 +18,6 @@ def count_winning_numbers(winning_numbers, your_numbers):
     for num in your_numbers:
         if num in winning_numbers:
             total_winning_numbers += 1
-            #print(f"Winning number: {num}")
-    #print(f"Total winning numbers: {total_winning_numbers}\n")
     return total_winning_numbers
 
 def score_card(total_winning_numbers):
@@ -29,46 +27,39 @@ def score_card(total_winning_numbers):
     else:
         return 0
     
-def part_1(lines):
-    total_points = 0    
-    for line in lines:
+def get_total_winning_numbers(line):
         total_winning_numbers = 0
-        points = 0  
         winning_numbers = get_list_of_numbers(line,"Winning")
         your_numbers = get_list_of_numbers(line,"Your")
         total_winning_numbers = count_winning_numbers(winning_numbers, your_numbers)
+        return total_winning_numbers
+    
+def part_1(lines):
+    total_points = 0    
+    for line in lines:
+        points = 0  
+        total_winning_numbers = get_total_winning_numbers(line)
         points = score_card(total_winning_numbers)
-        #print(f"Card points: {points}")
-        #print(f"Number of winning numbers: {total_winning_numbers}")
         total_points += points
-        #print(f"Current total: {total_points}\n")
     return f"Total points: {total_points}" 
 
 def part_2(lines):
     total_cards = 0
     card_counter = [1]*len(lines)
     for i, line in enumerate(lines):
-        total_winning_numbers = 0 # on a card
-        winning_numbers = get_list_of_numbers(line,"Winning")
-        your_numbers = get_list_of_numbers(line,"Your")
-        total_winning_numbers = count_winning_numbers(winning_numbers, your_numbers) 
-        
-        #print(f"Card counter: {card_counter}")
+        total_winning_numbers = get_total_winning_numbers(line)
         # update card counter 
         for j in range(i+1,i+total_winning_numbers+1):
             card_counter[j] += 1*card_counter[i]
-        #print(f"Number of cards: {card_counter[i]}")
         #update total cards
-        total_cards += card_counter[i]
-        #print(f"Total cards: {total_cards}")
-           
-    return total_cards
+        total_cards += card_counter[i]    
+    return f"Total cards: {total_cards}"
     
     
 part_1_answer = part_1(lines)
 part_2_answer = part_2(lines)    
          
-#print(part_1_answer)    
+print(part_1_answer)    
 print(part_2_answer)   
 
         
